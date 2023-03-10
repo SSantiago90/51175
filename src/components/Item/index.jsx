@@ -4,11 +4,18 @@ export default function Item(props) {
   return (
     <div className="item-card">
       <div className="item-card_header">
-        <h3>{props.title}</h3>
+        <h2>{props.title}</h2>
       </div>
-      <img src={props.img} className="item-card_img" alt="imagen"></img>
-      <h4>$ {props.price}</h4>
-      <small>{props.description}</small>
+      <div className="item-card_img">
+        <img src={props.img} alt="imagen"></img>
+      </div>
+
+      <div className="item-card_detail">
+        <h4>$ {props.price}</h4>
+        <small>{props.detail}</small>
+      </div>
+
+      <button>Ver detalle</button>
     </div>
   );
 }

@@ -9,7 +9,11 @@ function NavBar() {
         <li>
           <a href="/Remeras">Remeras</a>
         </li>
-        {/* CartWidget */}
+        {/* CartWidget*/}
+        <div>
+          🛒
+          <span className="cartWidget_count">3</span>
+        </div>
       </ul>
     </nav>
   );
