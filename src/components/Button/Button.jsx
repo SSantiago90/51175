@@ -1,4 +1,4 @@
-import "./button.css";
+import styles from "./button.module.css";
 
 const Button = (props) => {
   function handleClick() {
@@ -12,7 +12,7 @@ const Button = (props) => {
   return (
     <button
       disabled={props.disabled}
-      className="btn"
+      className={styles.btn}
       style={styleButton}
       onClick={handleClick}
     >

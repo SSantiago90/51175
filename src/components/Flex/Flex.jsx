@@ -1,5 +1,6 @@
+import "./flex.css";
 function Flex(props) {
-  return <div style={{ display: "flex" }}>{props.children}</div>;
+  return <div className="flex-container">{props.children}</div>;
 }
 
 export default Flex;

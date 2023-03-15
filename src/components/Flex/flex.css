@@ -1,0 +1,8 @@
+.flex-container{
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  text-align:  center;
+  flex-wrap: wrap;
+  justify-content: center;
+}

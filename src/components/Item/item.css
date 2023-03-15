@@ -83,6 +83,13 @@ a{
   color: white;
 }
 
+.item-card_favicon.favorite.green{
+  display: block;
+  background-color: rgb(84, 223, 147);
+  color: white;
+}
+
+
 small{
   color: #8c8c8e;
 }
