@@ -9,7 +9,7 @@ function getItems() {
   const promesa = new Promise((resolve) => {
     setTimeout(() => {
       resolve(productsDatabase);
-    }, 2500);
+    }, 1000);
   });
 
   return promesa;
