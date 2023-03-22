@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Item from "../Item";
 import Flex from "../Flex/Flex";
+import { useParams } from "react-router-dom";
 
 /* ------------- Mock async Service -------------------  */
 import productsDatabase from "../../data/products";
@@ -14,18 +15,36 @@ function getItems() {
 
   return promesa;
 }
+
+function getItemsByCategory(categoryURL) {
+  const promesa = new Promise((resolve) => {
+    setTimeout(() => {
+      // quiero filtrar el array
+      const filtro = productsDatabase.filter(
+        (item) => item.category === categoryURL
+      );
+      resolve(filtro);
+    }, 1000);
+  });
+
+  return promesa;
+}
 /* ----------------------------------------------------  */
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
-  console.log("Renderizando....");
+  const { categoryid } = useParams();
 
   useEffect(() => {
-    getItems().then((respuesta) => {
-      console.log("promesa cumplida", respuesta);
-
-      setProducts(respuesta);
-    });
+    if (categoryid === undefined) {
+      getItems().then((respuesta) => {
+        setProducts(respuesta);
+      });
+    } else {
+      getItemsByCategory(categoryid).then((respuesta) =>
+        setProducts(respuesta)
+      );
+    }
   }, []);
 
   return (
