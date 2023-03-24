@@ -1,24 +1,26 @@
 import React, { useState } from "react";
+import Button from "../Button/Button";
 
-export default function ItemCount(props) {
+export default function ItemCount() {
   const [count, setCount] = useState(0);
 
-  const stock = 20;
-
-  function handleAdd(){
-    /* If (stock alcance) return */
-    setCount(count + 1)
+  function handleAdd() {
+    setCount(count + 1);
   }
-
-  function handleSubstract(){
-    /* If (llegamos a 0)  */
+  function handleSubstract() {
+    setCount(count - 1);
   }
 
   return (
     <div>
-      <button>-</button>
+      <Button color="red" onPress={handleSubstract}>
+        -
+      </Button>
       <span> {count} </span>
-      <button onClick={handleAdd}>+</button>
+      <Button color="blue" onPress={handleAdd}>
+        +
+      </Button>
+      <Button>Agregar al carrito</Button>
     </div>
   );
 }
