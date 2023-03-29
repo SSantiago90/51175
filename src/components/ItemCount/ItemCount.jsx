@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 
-export default function ItemCount() {
+export default function ItemCount({ onAddToCart }) {
   const [count, setCount] = useState(0);
 
   function handleAdd() {
@@ -20,7 +20,7 @@ export default function ItemCount() {
       <Button color="blue" onPress={handleAdd}>
         +
       </Button>
-      <Button>Agregar al carrito</Button>
+      <button onClick={() => onAddToCart(count)}>Agregar al carrito</button>
     </div>
   );
 }

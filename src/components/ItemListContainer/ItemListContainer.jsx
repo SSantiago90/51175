@@ -10,7 +10,7 @@ function getItems() {
   const promesa = new Promise((resolve) => {
     setTimeout(() => {
       resolve(productsDatabase);
-    }, 1000);
+    }, 3000);
   });
 
   return promesa;
@@ -45,7 +45,7 @@ function ItemListContainer() {
         setProducts(respuesta)
       );
     }
-  }, []);
+  }, [categoryid]);
 
   return (
     //<ItemList products={products}/>

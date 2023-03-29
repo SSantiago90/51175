@@ -5,7 +5,7 @@ const products = [
     category: "Serbia",
     price: 9960.69,
     stock: 64,
-    img: "http://dummyimage.com/250x250.png/cc0000/ffffff",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Leskovacpanoramic.jpg/400px-Leskovacpanoramic.jpg",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     category: "Nigeria",
     price: 7017.59,
     stock: 45,
-    img: "http://dummyimage.com/250x250.png/ff4444/ffffff",
+    img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/7c/31/d5/kajuru-castle.jpg?w=700&h=-1&s=1",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     category: "Nigeria",
     price: 5553.04,
     stock: 40,
-    img: "http://dummyimage.com/250x250.png/ff4444/ffffff",
+    img: "https://i0.wp.com/www.travelwithapen.com/wp-content/uploads/2017/07/Agbokim-Waterfalls-scaled.jpg",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     category: "Poland",
     price: 7318.24,
     stock: 310,
-    img: "http://dummyimage.com/250x250.png/cc0000/ffffff",
+    img: "https://www.poland.travel/images/en-EN/unesco/KrakowWawel-540.jpg",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const products = [
     category: "China",
     price: 4835.13,
     stock: 225,
-    img: "http://dummyimage.com/250x250.png/dddddd/000000",
+    img: "https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/08/Intrepid-Travel-china_shanghai_yuyuan-garden-city.jpg",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const products = [
     category: "Albania",
     price: 4521.85,
     stock: 382,
-    img: "http://dummyimage.com/250x250.png/dddddd/000000",
+    img: "https://deih43ym53wif.cloudfront.net/saranda-albania-shutterstock_204912118_fcdee299f8.jpeg",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const products = [
     category: "Sudan",
     price: 7474.76,
     stock: 103,
-    img: "http://dummyimage.com/250x250.png/dddddd/000000",
+    img: "https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Sudan-MeroePyramids-118344388-urosr-copy.jpg",
   },
   {
     id: 8,
@@ -61,15 +61,7 @@ const products = [
     category: "Indonesia",
     price: 6819.1,
     stock: 403,
-    img: "http://dummyimage.com/250x250.png/cc0000/ffffff",
-  },
-  {
-    id: 9,
-    title: "Paris 19",
-    category: "France",
-    price: 7664.03,
-    stock: 232,
-    img: "http://dummyimage.com/250x250.png/ff4444/ffffff",
+    img: "https://www.indonesia.travel/content/dam/indtravelrevamp/en/homepage-hightlight-destination/JF-labuanbajo-mobile.jpg",
   },
   {
     id: 10,
@@ -77,7 +69,7 @@ const products = [
     category: "Nigeria",
     price: 2630.42,
     stock: 377,
-    img: "http://dummyimage.com/250x250.png/cc0000/ffffff",
+    img: "https://ocdn.eu/images/pulscms/MWY7MDA_/998753d28ebd13c7796c13ebf6eeb4a8.jpeg",
   },
   {
     id: 11,
@@ -85,15 +77,15 @@ const products = [
     category: "China",
     price: 4742.41,
     stock: 414,
-    img: "http://dummyimage.com/250x250.png/ff4444/ffffff",
+    img: "https://media.cnn.com/api/v1/images/stellar/prod/230104122913-03-china-reopening-tourism-thailand.jpg?c=original",
   },
   {
     id: 12,
-    title: "Calancuasan Norte",
-    category: "Philippines",
+    title: "Yakarta",
+    category: "Indonesia",
     price: 5526.74,
     stock: 40,
-    img: "http://dummyimage.com/250x250.png/cc0000/ffffff",
+    img: "https://www.indonesia.travel/content/dam/indtravelrevamp/home-revamp/bali-jack.jpg",
   },
 ];
 
