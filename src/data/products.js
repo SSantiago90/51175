@@ -5,6 +5,7 @@ const products = [
     category: "Serbia",
     price: 9960.69,
     stock: 64,
+    offer: 15,
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Leskovacpanoramic.jpg/400px-Leskovacpanoramic.jpg",
   },
   {
@@ -13,6 +14,7 @@ const products = [
     category: "Nigeria",
     price: 7017.59,
     stock: 45,
+    offer: 25,
     img: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/7c/31/d5/kajuru-castle.jpg?w=700&h=-1&s=1",
   },
   {
@@ -20,7 +22,7 @@ const products = [
     title: "Akure",
     category: "Nigeria",
     price: 5553.04,
-    stock: 40,
+    stock: 0,
     img: "https://i0.wp.com/www.travelwithapen.com/wp-content/uploads/2017/07/Agbokim-Waterfalls-scaled.jpg",
   },
   {
@@ -28,7 +30,7 @@ const products = [
     title: "Wola Rębkowska",
     category: "Poland",
     price: 7318.24,
-    stock: 310,
+    stock: 0,
     img: "https://www.poland.travel/images/en-EN/unesco/KrakowWawel-540.jpg",
   },
   {

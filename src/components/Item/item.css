@@ -47,6 +47,10 @@ a{
   object-fit: cover;
 }
 
+img.disabled{
+  filter: grayscale(0.9);
+}
+
 .item-card:hover{
   box-shadow: 0px 4px 15px  rgba(0,0,0,0.1);
   transform: translateY(-6px);

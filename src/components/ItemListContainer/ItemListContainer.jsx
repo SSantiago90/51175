@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Item from "../Item";
 import Flex from "../Flex/Flex";
 import { useParams } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 /* ------------- Mock async Service -------------------  */
 import productsDatabase from "../../data/products";
@@ -47,6 +48,10 @@ function ItemListContainer() {
     }
   }, [categoryid]);
 
+  if (products.length === 0) {
+    return <Loader/>
+  }
+
   return (
     //<ItemList products={products}/>
     <Flex>
@@ -58,6 +63,8 @@ function ItemListContainer() {
           price={producto.price}
           category={producto.category}
           img={producto.img}
+          stock={producto.stock}
+          offer={producto.offer}
         />
       ))}
     </Flex>

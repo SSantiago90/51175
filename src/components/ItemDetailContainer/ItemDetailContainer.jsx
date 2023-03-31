@@ -25,6 +25,8 @@ function getSingleItem(idURL) {
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
+  const [addedToCart, setAdeddedToCart] = useState(false);
+
   let { cityid } = useParams();
 
   const { cart, addItem } = useContext(cartContext);
@@ -37,7 +39,13 @@ function ItemDetailContainer() {
     });
   }, [cityid]);
 
+  /* Con lo aprendido hoy:  Almacenar ese valor en un estado, 
+  nos permitirá desencadenar un nuevo renderizado de ItemDetail 
+  Utiliza cualquiera de las técnicas mencionadas hoy para generar 
+  un renderizado condicional el cual oculte el ItemCount luego del evento de agregado
+ */
   function onAddToCart(count) {
+    /* set addedToCart = true; */
     addItem(product, count);
     console.log("agreado al carrito!");
   }
@@ -54,6 +62,8 @@ function ItemDetailContainer() {
         <small>{product.detail}</small>
       </div>
 
+      {/* Rendering condicional */}
+      {/* si addedToCart === true? <ItemCount> : <>ir al carrito<> */}
       <ItemCount onAddToCart={onAddToCart} />
 
       <Link to={`/detalle/${product.id - 1}`}>

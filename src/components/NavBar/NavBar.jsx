@@ -38,6 +38,9 @@ function NavBar() {
             Indonesia
           </Link>
         </li>
+        <li>
+          <Link to="/cart">Cart</Link>
+        </li>
 
         {/* CartWidget*/}
         <div>

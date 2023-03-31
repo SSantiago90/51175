@@ -19,6 +19,11 @@ function CartProvider(props) {
     setCart(newCart);
   }
 
+  function getPriceInCart() {
+    // cantidad * precio
+    return 1099;
+  }
+
   function getCountInCart() {
     // reduce
     let total = 0;
@@ -26,7 +31,11 @@ function CartProvider(props) {
     return 5;
   }
 
-  return <Provider value={{ cart, addItem }}>{props.children}</Provider>;
+  return (
+    <Provider value={{ cart, addItem, getPriceInCart }}>
+      {props.children}
+    </Provider>
+  );
 }
 
 export { cartContext, CartProvider };
