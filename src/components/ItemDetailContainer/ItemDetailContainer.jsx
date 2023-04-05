@@ -11,28 +11,22 @@ import { getSingleItem } from "../../services/firestore";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
-  const [addedToCart, setAdeddedToCart] = useState(false);
-
   let { cityid } = useParams();
 
-  const { cart, addItem } = useContext(cartContext);
+  const { addItem, getCountInCart } = useContext(cartContext);
 
   useEffect(() => {
     getSingleItem(cityid).then((respuesta) => {
       setProduct(respuesta);
     });
   }, [cityid]);
-
-  /* Con lo aprendido hoy:  Almacenar ese valor en un estado, 
-  nos permitirá desencadenar un nuevo renderizado de ItemDetail 
-  Utiliza cualquiera de las técnicas mencionadas hoy para generar 
-  un renderizado condicional el cual oculte el ItemCount luego del evento de agregado
- */
   function onAddToCart(count) {
-    /* set addedToCart = true; */
     addItem(product, count);
     console.log("agreado al carrito!");
   }
+
+  const countInCart = getCountInCart(product.id);
+  console.log(countInCart);
 
   return (
     /* <ItemDetail> */
@@ -48,7 +42,10 @@ function ItemDetailContainer() {
 
       {/* Rendering condicional */}
       {/* si addedToCart === true? <ItemCount> : <>ir al carrito<> */}
-      <ItemCount onAddToCart={onAddToCart} />
+      <ItemCount
+        stock={product.stock - countInCart}
+        onAddToCart={onAddToCart}
+      />
 
       <Link to={`/detalle/${product.id - 1}`}>
         <Button>Anterior</Button>

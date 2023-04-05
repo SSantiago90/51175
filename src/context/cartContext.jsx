@@ -1,40 +1,46 @@
 import { createContext, useState } from "react";
+import useDeepCopy from "../hooks/useDeepCopy";
 
-const cartContext = createContext({ default: "default" });
-const Provider = cartContext.Provider;
+// 1 CREARLO con createContext
+const cartContext = createContext({ cart: [] });
 
-// Custom Provider
+// 2 crear el PROVIDER
 function CartProvider(props) {
   const [cart, setCart] = useState([]);
-  // cart -> inmutable
+  const newCart = useDeepCopy(cart);
 
-  function addItem(product, count) {
-    /* product.quantity = count;
-    setCart(product); */
-
-    const newCart = [...cart]; // deep copy/shallow copy
-    //const otroNewCart = cart.map((item) => item);
-
-    newCart.push({ ...product, count });
+  function addItem(product, countFromCounter) {
+    if (isItemInCart(product.id)) {
+      const itemIndex = cart.findIndex(
+        (itemInCart) => itemInCart.id === product.id
+      );
+      newCart[itemIndex].count += countFromCounter;
+    } else {
+      newCart.push({ ...product, count: countFromCounter });
+    }
     setCart(newCart);
   }
 
-  function getPriceInCart() {
-    // cantidad * precio
-    return 1099;
+  function removeItem(idToDelete) {
+    /*  */
   }
 
-  function getCountInCart() {
-    // reduce
-    let total = 0;
-    cart.forEach();
-    return 5;
+  function isItemInCart(id) {
+    return cart.some((itemInCart) => itemInCart.id === id);
+  }
+
+  function getCountInCart(id) {
+    const item = cart.find((itemInCart) => itemInCart.id === id);
+
+    return item !== undefined ? item.count : 0;
   }
 
   return (
-    <Provider value={{ cart, addItem, getPriceInCart }}>
+    <cartContext.Provider
+      value={{ cart: cart, addItem, isItemInCart, getCountInCart, removeItem }}
+    >
       {props.children}
-    </Provider>
+    </cartContext.Provider>
   );
 }
 

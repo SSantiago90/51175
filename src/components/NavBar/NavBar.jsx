@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
+
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 
