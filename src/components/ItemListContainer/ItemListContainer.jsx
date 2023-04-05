@@ -3,34 +3,7 @@ import Item from "../Item";
 import Flex from "../Flex/Flex";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-
-/* ------------- Mock async Service -------------------  */
-import productsDatabase from "../../data/products";
-
-function getItems() {
-  const promesa = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(productsDatabase);
-    }, 3000);
-  });
-
-  return promesa;
-}
-
-function getItemsByCategory(categoryURL) {
-  const promesa = new Promise((resolve) => {
-    setTimeout(() => {
-      // quiero filtrar el array
-      const filtro = productsDatabase.filter(
-        (item) => item.category === categoryURL
-      );
-      resolve(filtro);
-    }, 1000);
-  });
-
-  return promesa;
-}
-/* ----------------------------------------------------  */
+import { getItems, getItemsByCategory } from "../../services/firestore";
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]);
@@ -49,7 +22,7 @@ function ItemListContainer() {
   }, [categoryid]);
 
   if (products.length === 0) {
-    return <Loader/>
+    return <Loader />;
   }
 
   return (

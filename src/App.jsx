@@ -12,10 +12,8 @@ function App() {
   return (
     <>
       <CartProvider>
-        {/* children */}
         <BrowserRouter>
           <NavBar />
-
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
@@ -24,14 +22,11 @@ function App() {
             />
 
             <Route path="/detalle/:cityid" element={<ItemDetailContainer />} />
-            {/* /cursos/3 */}
 
             <Route path="/prueba" element={<h1>Prueba Ruta</h1>} />
             <Route path="/cart" element={<CartContainer />} />
             <Route path="*" element={<h1>Error 404: Page not found</h1>} />
           </Routes>
-
-          {/* Footer */}
         </BrowserRouter>
       </CartProvider>
     </>

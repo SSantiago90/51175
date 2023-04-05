@@ -7,21 +7,7 @@ import Button from "../Button/Button";
 
 import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
-
-/* ------------- Mock async Service -------------------  */
-function getSingleItem(idURL) {
-  const promesa = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const itemRequested = productsDatabase.find((item) => {
-        return item.id === parseInt(idURL);
-      });
-      resolve(itemRequested);
-    }, 1000);
-  });
-
-  return promesa;
-}
-/* ------------------------------------------------- */
+import { getSingleItem } from "../../services/firestore";
 
 function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
@@ -30,8 +16,6 @@ function ItemDetailContainer() {
   let { cityid } = useParams();
 
   const { cart, addItem } = useContext(cartContext);
-
-  console.log("cart:", cart);
 
   useEffect(() => {
     getSingleItem(cityid).then((respuesta) => {
