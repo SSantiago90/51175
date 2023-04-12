@@ -35,9 +35,14 @@ function CartProvider(props) {
     return item !== undefined ? item.count : 0;
   }
 
+  function getTotalPrice(){
+    let total = 0;
+    return 1900;
+  }
+
   return (
     <cartContext.Provider
-      value={{ cart: cart, addItem, isItemInCart, getCountInCart, removeItem }}
+      value={{ cart: cart, addItem, isItemInCart, getCountInCart, removeItem, getTotalPrice }}
     >
       {props.children}
     </cartContext.Provider>
