@@ -1,54 +1,32 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
 import Button from "../Button/Button";
 import "./cart.css";
 import { createOrder } from "../../services/firestore";
-import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
+import FormCheckout from "./FormCheckout";
 
 function CartContainer() {
   const context = useContext(cartContext);
   const { cart, getTotalPrice } = context;
-  const [buyComplete, setBuyComplete] = useState(false);
+
   const navigateTo = useNavigate();
 
-  async function handleCheckout() {
+  async function handleCheckout(userData) {
     const order = {
       items: cart,
-      buyer: { name: "Santiago Coder" },
+      buyer: userData,
       total: getTotalPrice(),
       date: new Date(),
     };
 
     const orderId = await createOrder(order);
-    // 1. Alert/modal/popup -> sweetAlert
-    /*  const orderComplete = await swal({
-      title: "Gracias por tu compra",
-      text: "Tu compra se realizó correctamente. Tu ticket es: " + orderId,
-      icon: "success",
-    }); */
-
-    // 2. Rendering Condicional
-    /* setBuyComplete(orderId); */
-
-    // 3. Redireccionar
     navigateTo(`/checkout/${orderId}`);
-    //clearCart()
   }
-
-  /* if (buyComplete) {
-    return (
-      <div>
-        <h1>Gracias por tu compra</h1>
-        <p>Tu compra se realizó correctamente. Tu ticket es: {buyComplete}</p>
-      </div>
-    );
-  } */
 
   return (
     <>
       <h1>Tu Carrito</h1>
-
       <table className="cartList">
         <thead className="cartList_head">
           <tr className="cartList_row">
@@ -79,11 +57,10 @@ function CartContainer() {
           ))}
         </tbody>
       </table>
-
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
       </div>
-      <Button onPress={handleCheckout}>Finalizar Compra</Button>
+      <FormCheckout onCheckout={handleCheckout} />
     </>
   );
 }
