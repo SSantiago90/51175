@@ -44,10 +44,12 @@ function NavBar() {
         </li>
 
         {/* CartWidget*/}
-        <div>
-          🛒
-          <span className="cartWidget_count">{cart.length}</span>
-        </div>
+        <Link to="/cart">
+          <div>
+            🛒
+            <span className="cartWidget_count">{cart.length}</span>
+          </div>
+        </Link>
       </ul>
     </nav>
   );
